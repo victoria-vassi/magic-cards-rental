@@ -12,7 +12,59 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+
+
+          <button type="btn" data-toggle="modal" data-target="#myModal">Add Card Rental</button>
+
+
+              <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"> Add Card Rental </h4>
+                      </div>
+                      <div class="modal-body">
+                        <%= simple_form_for(new_card_path) do |f| %>
+                          <div class="form-inputs">
+                            <%= f.input :name,
+                                        required: false,
+                                        autofocus: true,
+                                        input_html: { autocomplete: "name" } %>
+                            <%= f.input :color,
+                                        required: false,
+                                        input_html: { autocomplete: "color" } %>
+                            <%= f.input :type,
+                                        required: false,
+                                        input_html: { autocomplete: "type" } %>
+                            <%= f.input :cmc,
+                                        required: false,
+                                        input_html: { autocomplete: "cmc" } %>
+                            <%= f.input :power,
+                                        required: false,
+                                        input_html: { autocomplete: "power" } %>
+                            <%= f.input :toughness,
+                                        required: false,
+                                        input_html: { autocomplete: "toughness" } %>
+                            <%= f.input :img_url,
+                                        required: false,
+                                        input_html: { autocomplete: "img_url" } %>
+                            <%= f.input :price_per_week,
+                                        required: false,
+                                        input_html: { autocomplete: "price_per_week" } %>
+                          </div>
+                          <% end %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"> Add </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
