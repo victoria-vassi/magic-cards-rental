@@ -3,7 +3,7 @@ class CreateCards < ActiveRecord::Migration[5.2]
     create_table :cards do |t|
       t.string :name
       t.string :color
-      t.string :type
+      t.string :card_type
       t.string :cmc
       t.string :power
       t.string :toughness
