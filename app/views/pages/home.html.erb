@@ -3,10 +3,9 @@
 	<h3 class="my-3">All cards available for rent</h3>
 	
 	<div class="cards pb-5">
-		<%= render 'shared/card' %>
-		<%= render 'shared/card' %>
-		<%= render 'shared/card' %>
-		<%= render 'shared/card' %>
+	  <% @cards_selection.each do |card| %>
+        <%= render 'shared/card' %>
+	  <% end %>
 	</div>
 </div>
 
