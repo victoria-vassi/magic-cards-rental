@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :cards
   has_many :bookings
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, uniqueness: true, presence: true
 end
