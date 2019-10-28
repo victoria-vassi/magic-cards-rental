@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+	<h1 class="my-5 text-center">Magic Cards Rental</h1>
+	<h3 class="my-3">All cards available for rent</h3>
+	
+	<div class="cards pb-5">
+		<%= render 'shared/card' %>
+		<%= render 'shared/card' %>
+		<%= render 'shared/card' %>
+		<%= render 'shared/card' %>
+	</div>
+</div>
+
+
