@@ -1,13 +1,27 @@
 <div class="container">
 	<h3 class="my-5">Card show page</h3>
-	
+
 	<div class="row">
 		<div class="col-3 mx-auto">
 			<%= render 'shared/card', card: @card %>
 		</div>
+  <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    Bookings
+    <% @bookings.each do |booking| %>
+    <li class="list-group-item"><%= booking.start_date %> <%= booking.end_date %>
+     <%= booking.total_price %> </li>
+    <% end %>
+    <%= link_to "Create New Booking", new_card_booking_path(@card) %>
+  </ul>
+
+
+</div>
+
 	</div>
 
 	<div class="py-5 d-flex justify-content-center">
     	<%= link_to "Back", cards_path, :class => "btn btn-primary"%>
 	</div>
 </div>
+
