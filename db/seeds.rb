@@ -56,9 +56,9 @@ for i in (1..8) do
   else
     puts new_card.errors.messages
   end  
-
+  
   new_booking = Booking.new(
-    start_date: n = Faker::Date.forward(days: 120),
+    start_date: n = Faker::Date.forward(days: rand(1..60)),
     end_date: n+14,
     total_price: p*2,
     user: new_user_buyer,
