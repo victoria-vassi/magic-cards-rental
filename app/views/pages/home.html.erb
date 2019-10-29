@@ -1,9 +1,14 @@
 <div class="container">
-	<h1 class="my-5 text-center">Magic Cards Rental</h1>
-	<h3 class="my-3">Selection of 8 cards</h3>
+	<h3 class="my-5">Selection of 4 cards</h3>
 	
-    <%= render 'shared/card' %>
-
+	<div class="cards pb-5">
+	  <% @cards.each do |card| %>
+	    <%= render 'shared/card', card: card %>
+	  <% end %>
+	</div>
+	
+	<div class="pb-5 d-flex justify-content-center">
+    	<%= link_to "See all", cards_path, :class => "btn btn-primary"%>
 	</div>
 </div>
 
