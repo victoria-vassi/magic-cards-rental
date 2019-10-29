@@ -6,14 +6,35 @@
     <div class="card-trip-infos">
       <div>
         <h2><%= card.name %></h2>
-        <p><%= card.card_type %></p>
+        <p><%= card.card_type.truncate(26) %></p>
         <br>
-        <p><%= card.cmc %></p>
-        <p><%= card.power %></p>
-        <p><%= card.toughness %></p>
+        <p>
+          <% if card.cmc.nil? %>
+            <br>
+          <% else %>
+            Mana: <%= card.cmc.to_i.round %>
+          <% end %>  
+        </p>
+        <p>
+          <% if card.power.nil? %>
+            <br>
+          <% else %>
+            Power: <%= card.power.to_i.round %>
+          <% end %> 
+        </p>
+        <p>
+          <% if card.toughness.nil? %>
+            <br>
+          <% else %>
+            Toughness: <%= card.toughness.to_i.round %>
+          <% end %> 
+        </p>
       </div>
       <h2 class="card-trip-pricing">€<%= card.price_per_week %></h2>
-      <span class="dot" style="background-color: <%= card.color %>"></span>
+      <% if !card.color.nil? %>
+        <span class="dot" style="background-color: <%= card.color.downcase %>"></span>
+      <% else %>
+      <% end %>
     </div>
   </div>
 </div>
