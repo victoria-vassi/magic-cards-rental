@@ -37,8 +37,8 @@ for i in (1..8) do
       )
       new_booking = Booking.create!(
         start_date:    n = Faker::Date.forward(days: 120),
-        end_date: [n+14, n+7].sample,
-        total_price: p*2 ,
+        end_date: n+14,
+        total_price: p*2,
         user: new_user_buyer,
         card: new_card
       )
@@ -61,6 +61,13 @@ puts " Finished generating 8 users(sellers) with their 8 associated cards AND 8 
 #   cards.each do |element|
 
 #     new_user_seller = User.create!(
+#       email:    Faker::Internet.email,
+#       password: Faker::Internet.password(min_length: 6),
+#       first_name:  Faker::Name.first_name,
+#       last_name: Faker::Name.last_name,
+#     )
+
+#     new_user_buyer = User.create!(
 #       email:    Faker::Internet.email,
 #       password: Faker::Internet.password(min_length: 6),
 #       first_name:  Faker::Name.first_name,
