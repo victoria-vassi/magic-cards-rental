@@ -1,20 +1,19 @@
-<div class="cards pb-5">
-  <% @cards_selection.each do |card| %>
-  <div class="card-category">
-    <div class="card-trip">
-      <img src=<%= card.img_url %> />
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= card.name %></h2>
-          <p><%= card.card_type %></p>
-          <br>
-          <p><%= card.cmc %></p>
-          <p><%= card.power %></p>
-          <p><%= card.toughness %></p>
-        </div>
-        <h2 class="card-trip-pricing">€<%= card.price_per_week %></h2>
-        <span class="dot" style="background-color: <%= card.color %>"></span>
+<div class="card-category">
+  <div class="card-trip">
+    <%= link_to card_path(card) do %>
+      <%= content_tag :img, "", src: card.img_url %>
+    <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= card.name %></h2>
+        <p><%= card.card_type %></p>
+        <br>
+        <p><%= card.cmc %></p>
+        <p><%= card.power %></p>
+        <p><%= card.toughness %></p>
       </div>
+      <h2 class="card-trip-pricing">€<%= card.price_per_week %></h2>
+      <span class="dot" style="background-color: <%= card.color %>"></span>
     </div>
   </div>
-<% end %>
+</div>
