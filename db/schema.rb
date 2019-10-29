@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_081950) do
   create_table "cards", force: :cascade do |t|
     t.string "name"
     t.string "color"
-    t.string "type"
+    t.string "card_type"
     t.string "cmc"
     t.string "power"
     t.string "toughness"
