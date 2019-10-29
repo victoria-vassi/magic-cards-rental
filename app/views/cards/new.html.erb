@@ -3,6 +3,8 @@
     <div class="col-md-6 mx-auto">
       <div class="card p-5 m-5" >
 
+        <h3> Create New Card Listing </h3>
+
         <%= simple_form_for(@card) do |f| %>
         <%= f.error_notification %>
 
@@ -17,7 +19,7 @@
                         autofocus: true,
                         input_html: { autocomplete: "Color" } %>
 
-            <%= f.input :type,
+            <%= f.input :card_type,
                         required: true,
                         autofocus: true,
                         input_html: { autocomplete: "Type" } %>
@@ -48,7 +50,7 @@
                         input_html: { autocomplete: "Price per Week" } %>
           </div>
             <div class="form-actions">
-              <%= f.button :submit, "Create New Card Listing" , class: "btn btn-flat"%>
+              <%= f.button :submit, "Create New Card Listing", class: "btn btn-flat"%>
             </div>
           <% end %>
       </div>
