@@ -3,7 +3,8 @@ require 'open-uri'
 require 'faker'
 
 # Generating a card, with its associated user(buyer) and booking with its associated user(buyer) and card(whose user_id belongs to the seller). Generating x instances.
- puts "Seeding 16 users, 8 cards and 8 bookings..."
+puts "Seeding 16 users, 8 cards and 8 bookings..."
+
 for i in (1..8) do
     id = rand(1..4880)
     url = "https://api.magicthegathering.io/v1/cards/#{id}"
