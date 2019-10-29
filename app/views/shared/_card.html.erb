@@ -1,20 +1,44 @@
-<div class="cards pb-5">
-  <% @cards_selection.each do |card| %>
-  <div class="card-category">
-    <div class="card-trip">
-      <img src=<%= card.img_url %> />
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= card.name %></h2>
-          <p><%= card.card_type %></p>
-          <br>
-          <p><%= card.cmc %></p>
-          <p><%= card.power %></p>
-          <p><%= card.toughness %></p>
-        </div>
-        <h2 class="card-trip-pricing">€<%= card.price_per_week %></h2>
-        <span class="dot" style="background-color: <%= card.color %>"></span>
+<div class="card-category">
+  <div class="card-trip">
+    <% if !(params[:action] == "show") %>
+      <%= link_to card_path(card) do %>
+        <%= content_tag :img, "", src: card.img_url %>
+      <% end %>
+    <% else %>
+      <img src=<%= card.img_url %>>
+    <% end  %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= card.name %></h2>
+        <p><%= card.card_type.truncate(26) %></p>
+        <br>
+        <p>
+          <% if card.cmc.nil? %>
+            <br>
+          <% else %>
+            Mana: <%= card.cmc.to_i.round %>
+          <% end %>  
+        </p>
+        <p>
+          <% if card.power.nil? %>
+            <br>
+          <% else %>
+            Power: <%= card.power.to_i.round %>
+          <% end %> 
+        </p>
+        <p>
+          <% if card.toughness.nil? %>
+            <br>
+          <% else %>
+            Toughness: <%= card.toughness.to_i.round %>
+          <% end %> 
+        </p>
       </div>
+      <h2 class="card-trip-pricing">€<%= card.price_per_week %></h2>
+      <% if !card.color.nil? %>
+        <span class="dot" style="background-color: <%= card.color.downcase %>"></span>
+      <% else %>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>

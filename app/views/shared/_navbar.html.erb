@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo_2.png", class: "image", style: "width: 150px"; %>
+    <%= image_tag "logo.png", class: "image", style: "width: 150px"; %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,6 +13,7 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Home", root_path, class: "nav-link" %>
+
         </li>
         <li class="nav-item">
           <%= link_to current_user.first_name + " " + current_user.last_name, user_profile_path(current_user), class: "nav-link" %>
@@ -22,6 +23,8 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "User Profile", user_profile_path(current_user), class: "dropdown-item" %>
             <%= link_to "Messages", "#", class: "dropdown-item" %>
+            <%= link_to "Add Rental Card", new_card_path, class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

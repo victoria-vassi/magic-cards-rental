@@ -1,9 +1,42 @@
+<video id="video-home" autoplay="autoplay" muted="muted" poster="https://magic.wizards.com/sites/mtg/files/MTGA_Garruk_preloader_0.jpg" loop>
+  <source type = "video/webm" src="https://magic.wizards.com/sites/mtg/files/MTGA_Garruk_3.webmhd.webm">
+  <source type = "video/mp4" src="https://magic.wizards.com/sites/mtg/files/MTGA_Garruk_4.mp4">
+</video>
+
+<div class = "logo-container">
+  <%= link_to root_path do %>
+    <%= image_tag "logo.png", style: "width: 150px"; %>
+  <% end %>
+</div>
+
+<div class="video-container">
+  <h1>Welcome to a world of <strong> fantasy </strong> and <strong> imagination </strong>!</h1>
+  <p>Real Strategy. Real Challenge</p>
+   <%= link_to "Sign up", new_user_registration_path, class: "nav-link", class: "btn btn-flat" %>
+   <%= link_to "Log in", new_user_session_path, class: "nav-link", class: "btn btn-flat" %>
+  <div class="icon-scroll">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <div class="icon-arrows">
+      <span></span>
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
 	<h1 class="my-5 text-center">Magic Cards Rental</h1>
-	<h3 class="my-3">Selection of 8 cards</h3>
-	
-    <%= render 'shared/card' %>
+	<h3 class="my-5">Selection of 4 cards</h3>
 
+	<div class="cards pb-5">
+	  <% @cards.each do |card| %>
+	    <%= render 'shared/card', card: card %>
+	  <% end %>
+	</div>
+
+	<div class="pb-5 d-flex justify-content-center">
+    	<%= link_to "See all", cards_path, :class => "btn btn-primary"%>
 	</div>
 </div>
 
