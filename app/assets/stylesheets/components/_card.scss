@@ -4,6 +4,10 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.selected {
+  box-shadow: 0 0 15px rgba(200,55,27,1) !important;
+}
+
 .card-trip img {
   width: 100%;
   padding: 10px;

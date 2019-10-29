@@ -1,9 +1,15 @@
-<div class="container">
+<div class="container" style="margin-bottom: 100px;">
 	<h3 class="my-5">All cards</h3>
-	
+
 	<div class="cards pb-5">
 	  <% @cards.each do |card| %>
 	    <%= render 'shared/card', card: card %>
 	  <% end %>
+	</div>
+
+</div>
+
+<div class="footer">
+	<div class="container h-100 d-flex align-items-center">
 	</div>
 </div>
