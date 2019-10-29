@@ -13,58 +13,6 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
 
-
-          <button type="btn" data-toggle="modal" data-target="#myModal">Add Card Rental</button>
-
-
-              <div class="modal fade" id="myModal" role="dialog">
-                  <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title"> Add Card Rental </h4>
-                      </div>
-                      <div class="modal-body">
-                        <%= simple_form_for(new_card_path) do |f| %>
-                          <div class="form-inputs">
-                            <%= f.input :name,
-                                        required: false,
-                                        autofocus: true,
-                                        input_html: { autocomplete: "name" } %>
-                            <%= f.input :color,
-                                        required: false,
-                                        input_html: { autocomplete: "color" } %>
-                            <%= f.input :type,
-                                        required: false,
-                                        input_html: { autocomplete: "type" } %>
-                            <%= f.input :cmc,
-                                        required: false,
-                                        input_html: { autocomplete: "cmc" } %>
-                            <%= f.input :power,
-                                        required: false,
-                                        input_html: { autocomplete: "power" } %>
-                            <%= f.input :toughness,
-                                        required: false,
-                                        input_html: { autocomplete: "toughness" } %>
-                            <%= f.input :img_url,
-                                        required: false,
-                                        input_html: { autocomplete: "img_url" } %>
-                            <%= f.input :price_per_week,
-                                        required: false,
-                                        input_html: { autocomplete: "price_per_week" } %>
-                          </div>
-                          <% end %>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"> Add </button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
@@ -72,7 +20,7 @@
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Add Rental Card", new_card_path, class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

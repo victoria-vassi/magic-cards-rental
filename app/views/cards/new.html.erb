@@ -1,2 +1,57 @@
-<h1>Cards#new</h1>
-<p>Find me in app/views/cards/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card p-5 m-5" >
+
+        <%= simple_form_for(@card) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+            <%= f.input :name,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Name" } %>
+
+             <%= f.input :color,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Color" } %>
+
+            <%= f.input :type,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Type" } %>
+
+            <%= f.input :cmc,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "CMC" } %>
+
+            <%= f.input :power,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Power" } %>
+
+            <%= f.input :toughness,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Toughness" } %>
+
+            <%= f.input :img_url,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Image URL" } %>
+
+            <%= f.input :price_per_week,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Price per Week" } %>
+          </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Create New Card Listing" , class: "btn btn-flat"%>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
