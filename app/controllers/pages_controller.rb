@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def home
     cards_all = Card.all
-    @cards = cards_all.sample(8)
+    @cards = cards_all.sample(4)
   end
 end

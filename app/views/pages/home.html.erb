@@ -1,12 +1,15 @@
 <div class="container">
-	<h3 class="my-5">Selection of 8 cards</h3>
+	<h3 class="my-5">Selection of 4 cards</h3>
 	
 	<div class="cards pb-5">
 	  <% @cards.each do |card| %>
 	    <%= render 'shared/card', card: card %>
 	  <% end %>
 	</div>
-
+	
+	<div class="pb-5 d-flex justify-content-center">
+    	<%= link_to "See all", cards_path, :class => "btn btn-primary"%>
+	</div>
 </div>
 
 
