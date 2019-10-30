@@ -240,6 +240,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap
+  byebug
   carrierwave (~> 2.0)
   cloudinary (~> 1.9.1)
   devise

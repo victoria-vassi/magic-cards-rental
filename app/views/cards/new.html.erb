@@ -10,40 +10,8 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-            <%= f.input :name,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "Name" } %>
+            <%= f.input :name, as: :select, collection:@name_list %>
 
-             <%= f.input :color,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "Color" } %>
-
-            <%= f.input :card_type,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "Type" } %>
-
-            <%= f.input :cmc,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "CMC" } %>
-
-            <%= f.input :power,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "Power" } %>
-
-            <%= f.input :toughness,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "Toughness" } %>
-
-            <%= f.input :img_url,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "Image URL" } %>
 
             <%= f.input :price_per_week,
                         required: true,
