@@ -5,7 +5,7 @@ class CardsController < ApplicationController
   before_action :set_card, only: [:show]
 
   def index
-    @cards = Card.all
+    @cards = policy_scope(Card)
   end
 
   def show
@@ -19,7 +19,7 @@ class CardsController < ApplicationController
     @card_list = get_card_info
     @name_list = @card_list.each.map {|element| element[:name]}
     @card = Card.new
-
+    authorize @card
   end
 
   def create
@@ -28,11 +28,30 @@ class CardsController < ApplicationController
     @card = Card.new(right_card)
     @card[:price_per_week] = params[:card][:price_per_week]
     @card.user = current_user
+    authorize @card
     if @card.save
       redirect_to card_path(@card)
     else
       render :new
     end
+  end
+
+  def edit
+    @card = Card.find(params[:id])
+    authorize @card
+  end
+
+  def update
+    @card = Card.find(params[:id])
+    @card.update(card_params)
+    authorize @card
+  end
+
+  def destroy
+    @card = Card.find(params[:id])
+    authorize @card
+    @card.destroy
+    redirect_to user_profile_path(current_user)
   end
 
   private
@@ -58,6 +77,7 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.find(params[:id])
+    authorize @card
   end
 
   def card_params
