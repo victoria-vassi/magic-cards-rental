@@ -1,5 +1,4 @@
 class CardPolicy < ApplicationPolicy
-
   class Scope < Scope
     def resolve
       scope.all

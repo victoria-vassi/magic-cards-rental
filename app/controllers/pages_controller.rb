@@ -8,5 +8,8 @@ class PagesController < ApplicationController
 
   def user_profile
     @user = User.find(params[:id])
+    @cards = Card.where(user: @user)
+    @bookings_made = Booking.where(user: @user)
+    @bookings_received = Booking.includes(:card).where(cards: { user_id: @user.id })
   end
 end

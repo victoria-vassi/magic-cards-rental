@@ -39,9 +39,9 @@ class CardsController < ApplicationController
 
   def destroy
     @card = Card.find(params[:id])
-    @card.destroy
     authorize @card
-    redirect_to card_path
+    @card.destroy
+    redirect_to user_profile_path(current_user)
   end
 
   private

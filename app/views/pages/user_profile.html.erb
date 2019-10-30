@@ -1,43 +1,69 @@
-<div class = "container" style="padding-top: 30px">
-    <ul class="list-inline tabs-underlined" style = "padding-left: 38%">
-    <li>
-      <a href="#" class="tab-underlined active">Profile</a>
-    </li>
-    <li>
-      <%= link_to "Bookings", edit_user_registration_path %>
-    </li>
-    <li>
-      <a href="#" class="tab-underlined">Cards</a>
-    </li>
-  </ul>
+<div class = "container mx-auto " style="padding-top: 30px ">
+<!-- Tab links -->
+<div class="tab mx-auto">
+  <button class="tablinks active">Profile</button>
+  <button class="tablinks">Bookings</button>
+  <button class="tablinks">Cards</button>
 </div>
 
-<div class="container">
-  <div class="row" style="padding: 30px">
-    <div class="panel panel-default">
-      <div class="panel-heading">  <h4 ><%= @user.first_name + " " + @user.last_name %></h4></div>
-        <div class="panel-body">
-          <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-            <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
-            id="profile-image1" class="img-circle img-responsive" style = "width:50%; height: 50%">
+<!-- Tab content -->
+<div id="Profile" class="tabcontent" style="display: block;">
+
+  <div class="container">
+    <div class="row">
+          <h4 ><%= @user.first_name + " " + @user.last_name %></h4></div>
+            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+              <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+              id="profile-image1" class="img-circle img-responsive" style = "width:50%; height: 50%">
             </div>
-             <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
-              <div class="container" >
-                </div>
-                 <hr>
+               <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+                <hr>
                   <ul class="container details" >
-                    <li><p><span class="glyphicon glyphicon-envelope one" style="width:25px;">
-
-                    </span>User Email: <%= @user.email %></p></li>
-                   <li><p><span class="glyphicon glyphicon-envelope one" style="width:25px;">
-
-                   </span>Account Began: <%= @user.created_at.to_formatted_s(:long)%></p></li>
-                </ul>
-              <hr>
-      <div class="col-sm-5 col-sm-6 tital " > </div>
-     </div>
-   <button class="btn btn-flat" type="submit" style = "color:white">
-    <%= link_to "Edit this Profile",  edit_user_registration_path,{:style=>'color:white;'} %></button>
-    <%= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-flat" %></p>
+                    <li><p>
+                        <span class="glyphicon glyphicon-envelope one" style="width:25px;"> </span>
+                        User Email: <%= @user.email %>
+                      </p></li>
+                     <li><p>
+                        <span class="glyphicon glyphicon-envelope one" style="width:25px;"></span>
+                        Account Began: <%= @user.created_at.to_formatted_s(:long)%>
+                      </p></li>
+                  </ul>
+                <hr>
+              </div>
+       <button class="btn btn-flat" type="submit" style = "color:white">
+        <%= link_to "Edit this Profile",  edit_user_registration_path,{:style=>'color:white;'} %></button>
+        <%= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-flat" %></p>
+      </div>
   </div>
+
+<div id="Bookings" class="tabcontent">
+  <div class="container">
+  <h3>Bookings Received</h3>
+  <% @bookings_received.each do |b| %>
+    <p><%= b.price %></p>
+  <% end %>
+
+  <h3>Bookings Made</h3>
+  <% @bookings_made.each do |b| %>
+    <p><%= b.price %></p>
+  <% end %>
 </div>
+</div>
+
+<div id="Cards" class="tabcontent">
+  <h3>Cards</h3>
+    <div class="cards pb-5">
+
+  <% @cards.each do |card| %>
+    <%= render 'shared/card', card: card %>
+    <%= link_to "Delete", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+</div>
+</div>
+</div>
+
+
+
+
+
+
