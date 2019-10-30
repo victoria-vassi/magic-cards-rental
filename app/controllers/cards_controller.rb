@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 class CardsController < ApplicationController
   before_action :set_card, only: [:show]
 
@@ -8,12 +11,12 @@ class CardsController < ApplicationController
   def show
     @card = Card.find(params[:id])
     @bookings = Booking.where("card_id = #{params[:id]}")
-    @user = User.find(@bookings[0].user_id)
-    @booking_test = Booking.new
+    @booking = Booking.new
 
   end
 
   def new
+    get_card_info
     @card = Card.new
 
   end
@@ -29,6 +32,16 @@ class CardsController < ApplicationController
   end
 
   private
+    def get_card_info
+
+      for i in (1..50) do
+        id = rand(1..4880)
+        url = "https://api.magicthegathering.io/v1/cards/#{id}"
+        card_serialized = open(url).read
+        card = JSON.parse(card_serialized)
+      end
+
+    end
 
   def set_card
     @card = Card.find(params[:id])

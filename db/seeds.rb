@@ -6,7 +6,7 @@ require 'faker'
 puts "Seeding 8 buyers (user), 8 sellers (user), 8 cards and 8 bookings..."
 puts "------------------"
 
-for i in (1..8) do
+for i in (1..50) do
   id = rand(1..4880)
   url = "https://api.magicthegathering.io/v1/cards/#{id}"
   card_serialized = open(url).read
@@ -37,7 +37,7 @@ for i in (1..8) do
     puts "Seller (user) created"
   else
     puts new_user_seller.errors.messages
-  end  
+  end
 
   new_card = Card.new(
     name: card["card"]["name"],
@@ -55,8 +55,8 @@ for i in (1..8) do
     puts "Card created"
   else
     puts new_card.errors.messages
-  end  
-  
+  end
+
   new_booking = Booking.new(
     start_date: n = Faker::Date.forward(days: rand(1..60)),
     end_date: n+14,
@@ -70,5 +70,5 @@ for i in (1..8) do
     puts "------------------"
   else
     puts new_booking.errors.messages
-  end  
+  end
 end
