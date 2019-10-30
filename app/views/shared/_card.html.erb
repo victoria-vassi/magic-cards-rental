@@ -1,5 +1,9 @@
 <div class="card-category">
-  <div class="card-trip" id="<%= card.id %>">
+  <% if (params[:action] == "index") %>
+    <div class="card-trip-selectable" id="<%= card.id %>">
+  <% else %>
+    <div class="card-trip" id="<%= card.id %>">
+  <% end  %>
     <% if !(params[:action] == "show") %>
       <%= link_to card_path(card) do %>
         <%= content_tag :img, "", src: card.img_url %>
@@ -42,10 +46,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  function toggleRedBoxShadow(card_id) {
-    var element = document.getElementById(card_id);
-    element.classList.toggle("selected");
-  }
-</script>

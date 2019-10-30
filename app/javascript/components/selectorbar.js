@@ -10,7 +10,7 @@ function refreshSelectorbar() {
 	  element.innerText = `${count} Cards selected`
 	};
 
-	const cards = document.querySelectorAll(".card-trip");
+	const cards = document.querySelectorAll(".card-trip-selectable");
 	cards.forEach((card) => {
 	  card.addEventListener("click", (event) => {
 	  	toggleRedBoxShadow(`${event.currentTarget.id}`)
