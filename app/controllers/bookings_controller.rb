@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
  def new
    @booking = Booking.new
    @card = Card.find(params[:card_id])
+   authorize @card
  end
 
  def create
