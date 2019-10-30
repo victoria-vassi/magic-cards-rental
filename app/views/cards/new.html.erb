@@ -9,7 +9,8 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-            <%= f.collection_select(:name, Card.all, :id, :name) %>
+            <%= f.input :name, as: :select, collection:@name_list %>
+
 
             <%= f.input :price_per_week,
                         required: true,
