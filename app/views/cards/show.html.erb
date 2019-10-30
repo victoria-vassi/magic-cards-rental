@@ -4,11 +4,11 @@
     <div class="col-3 mx-auto">
       <%= render 'shared/card', card: @card %>
     </div>
-    <div class="col-6 mx-auto">
+    <div class="col-3 mx-auto">
       <div class="card-category">
-        <div class="card-trip">
+        <div class="card-trip" style="min-height: 500px;">
           <div class="m-3">
-            <h3>Availibility</h3>
+            <h3>Bookings</h3>
             <p>
               <% if @bookings %>
               <% @bookings.each do |booking| %>
@@ -22,10 +22,12 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-6">
       <%= render 'shared/booking', card: @card %>
     </div>
   </div>
   <div class="py-5 d-flex justify-content-center">
-    <%= link_to "Back", cards_path, :class => "btn btn-primary"%>
+    <%= link_to "Back", cards_path, :class => "btn btn-flat"%>
   </div>
 </div>

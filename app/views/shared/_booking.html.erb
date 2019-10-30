@@ -1,6 +1,7 @@
-<div class="card-trip my-5" >
-  <div class="m-3">
-    <h3> Book this card </h3>
+<div class="card-category">
+  <div class="card-trip" style="min-height: 500px;" >
+    <div class="m-3">
+      <h3> Book this card </h3>
       <div id='card-booking-dates' data-unavailable="<%= @card.unavailable_dates.to_json %>">
         <% if current_user.id != @card.user_id  %>
           <%= simple_form_for [@card, @booking] do |f| %>
@@ -26,3 +27,4 @@
       </div>
     </div>
   </div>
+</div>
