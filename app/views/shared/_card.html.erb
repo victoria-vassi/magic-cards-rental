@@ -1,5 +1,5 @@
 <div class="card-category">
-  <div class="card-trip" id="<%= card.id %>" onclick="toggleRedBoxShadow(<%= card.id.to_s %>)">
+  <div class="card-trip" id="<%= card.id %>">
     <% if !(params[:action] == "show") %>
       <%= link_to card_path(card) do %>
         <%= content_tag :img, "", src: card.img_url %>
