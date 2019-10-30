@@ -4,7 +4,7 @@ import { calendar } from '../plugins/init_flatpickr'
 import { refreshSelectorbar } from '../components/selectorbar';
 import { typewriter } from '../components/typewriter';
 
-
 calendar();
+import { refreshSelectorbar } from '../components/selectorbar';
 refreshSelectorbar();
 typewriter();
