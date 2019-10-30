@@ -11,7 +11,7 @@ class CardsController < ApplicationController
   end
 
   def new
-    @card = current_user.card.new
+    @card = Card.new
     authorize @card
   end
 

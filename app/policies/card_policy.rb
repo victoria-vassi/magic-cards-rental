@@ -1,4 +1,5 @@
 class CardPolicy < ApplicationPolicy
+
   class Scope < Scope
     def resolve
       scope.all
@@ -14,7 +15,7 @@ class CardPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user
   end
 
   def update?

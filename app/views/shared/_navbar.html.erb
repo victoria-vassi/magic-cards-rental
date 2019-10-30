@@ -16,7 +16,7 @@
           <% if user_signed_in? %>
             <li class="nav-item active">
               <li class="nav-item">
-              <%= link_to current_user.first_name + " " + current_user.last_name, user_profile_path(current_user), class: "nav-link" %>
+
             </li>
 
             </li>
@@ -27,7 +27,7 @@
             </button>
 
               <div class="dropdown-menu dropdown-menu-right border-none" style = "border: none;" aria-labelledby="navbarDropdown">
-                <%= link_to "Profile", "#", class: "dropdown-item" %>
+                <%= link_to "Profile", user_profile_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Saved", "#", class: "dropdown-item" %>
 
                 <% if policy(Card).create? %>
