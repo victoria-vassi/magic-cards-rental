@@ -11,14 +11,14 @@ class CardsController < ApplicationController
   end
 
   def new
-    authorize @card
     @card = current_user.card.new
+    authorize @card
   end
 
   def create
-    authorize @card
     @card = Card.new(card_params)
     @card.user = current_user
+    authorize @card
     if @card.save
       redirect_to card_path(@card)
     else
@@ -27,20 +27,20 @@ class CardsController < ApplicationController
   end
 
   def edit
-    authorize @card
     @card = Card.find(params[:id])
+    authorize @card
   end
 
   def update
-    authorize @card
     @card = Card.find(params[:id])
     @card.update(card_params)
+    authorize @card
   end
 
   def destroy
-    authorize @card
     @card = Card.find(params[:id])
     @card.destroy
+    authorize @card
     redirect_to card_path
   end
 
