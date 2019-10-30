@@ -24,11 +24,10 @@ class CardsController < ApplicationController
 
   def create
     card_list = get_card_info
-    right_card = card_list.find {|element| element[:name] = params[:card][:name]}
+    right_card = card_list.find {|element| element[:name] == params[:card][:name]}
     @card = Card.new(right_card)
     @card[:price_per_week] = params[:card][:price_per_week]
     @card.user = current_user
-    raise
     if @card.save
       redirect_to card_path(@card)
     else
