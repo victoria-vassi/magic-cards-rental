@@ -21,21 +21,21 @@
             <br>
           <% else %>
             Mana: <%= card.cmc.to_i.round %>
-          <% end %>  
+          <% end %>
         </p>
         <p>
           <% if card.power.nil? %>
             <br>
           <% else %>
             Power: <%= card.power.to_i.round %>
-          <% end %> 
+          <% end %>
         </p>
         <p>
           <% if card.toughness.nil? %>
             <br>
           <% else %>
             Toughness: <%= card.toughness.to_i.round %>
-          <% end %> 
+          <% end %>
         </p>
       </div>
       <h2 class="card-trip-pricing">€<%= card.price_per_week %></h2>
