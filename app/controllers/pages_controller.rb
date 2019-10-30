@@ -5,4 +5,8 @@ class PagesController < ApplicationController
     cards_all = Card.all
     @cards = cards_all.sample(4)
   end
+
+  def user_profile
+    @user = User.find(params[:id])
+  end
 end

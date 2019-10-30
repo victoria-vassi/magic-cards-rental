@@ -11,11 +11,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
             <li class="nav-item active">
+              <li class="nav-item">
+              <%= link_to current_user.first_name + " " + current_user.last_name, user_profile_path(current_user), class: "nav-link" %>
+            </li>
 
             </li>
             <li class="nav-item dropdown">
