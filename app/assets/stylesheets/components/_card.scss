@@ -2,10 +2,12 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-bottom: 10px solid white;
 }
 
 .selected {
   box-shadow: 0 0 15px rgba(200,55,27,1) !important;
+  border-bottom: 10px solid #C8371B;
 }
 
 .card-trip img {
