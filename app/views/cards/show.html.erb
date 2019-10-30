@@ -1,30 +1,31 @@
 <div class="container">
-	<h3 class="my-5">Card show page</h3>
-
-	<div class="row">
-		<div class="col-3 mx-auto">
-			<%= render 'shared/card', card: @card %>
-		</div>
-		<div class="col-9 mx-auto">
-			<div class="card-category">
-				<div class="card-trip">
-					<div class="m-3">
-						<h3>Bookings</h3>
-						<p>
-							<% @bookings.each do |booking| %>
-			          <p>Start date: <%= booking.start_date %></p>
-			          <p>End date: <%= booking.end_date %></p>
-			          <p>Total price: €<%= booking.total_price %></p>
-			          <hr>
-							<% end %>	
-						</p>	
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="py-5 d-flex justify-content-center">
-    	<%= link_to "Back", cards_path, :class => "btn btn-flat"%>
-	</div>
+  <h3 class="my-5">Card show page</h3>
+  <div class="row">
+    <div class="col-3 mx-auto">
+      <%= render 'shared/card', card: @card %>
+    </div>
+    <div class="col-6 mx-auto">
+      <div class="card-category">
+        <div class="card-trip">
+          <div class="m-3">
+            <h3>Availibility</h3>
+            <p>
+              <% if @bookings %>
+              <% @bookings.each do |booking| %>
+                <p>Start date: <%= booking.start_date %></p>
+                <p>End date: <%= booking.end_date %></p>
+                <p>Total price: €<%= booking.total_price %></p>
+                <hr>
+              <% end %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <%= render 'shared/booking', card: @card %>
+    </div>
+  </div>
+  <div class="py-5 d-flex justify-content-center">
+    <%= link_to "Back", cards_path, :class => "btn btn-primary"%>
+  </div>
 </div>
