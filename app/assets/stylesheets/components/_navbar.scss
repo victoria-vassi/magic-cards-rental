@@ -10,3 +10,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.fa-1x {
+  font-size: 1.2rem;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.navbar-toggle {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  outline: none;
+  button:focus {
+    outline: none;
+  }
+}
