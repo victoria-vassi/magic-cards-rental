@@ -5,6 +5,4 @@ import { refreshSelectorbar } from '../components/selectorbar';
 import { typewriter } from '../components/typewriter';
 
 calendar();
-import { refreshSelectorbar } from '../components/selectorbar';
 refreshSelectorbar();
-typewriter();
