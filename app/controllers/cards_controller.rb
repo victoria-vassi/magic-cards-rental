@@ -8,10 +8,14 @@ class CardsController < ApplicationController
   def show
     @card = Card.find(params[:id])
     @bookings = Booking.where("card_id = #{params[:id]}")
+    @user = User.find(@bookings[0].user_id)
+    @booking_test = Booking.new
+
   end
 
   def new
     @card = Card.new
+
   end
 
   def create

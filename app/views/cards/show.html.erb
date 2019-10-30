@@ -25,6 +25,42 @@
 		</div>
   </div>
 
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card p-5 m-5" >
+
+        <h3> Create New Booking </h3>
+        <%= simple_form_for [@card, @booking_test], url: card_bookings_path, method: :post do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+            <%= f.input :start_date,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Name" } %>
+
+             <%= f.input :end_date,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Color" } %>
+
+            <%= f.input :total_price,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Type" } %>
+
+          </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Create New Booking", class: "btn btn-flat"%>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 	<div class="py-5 d-flex justify-content-center">
     	<%= link_to "Back", cards_path, :class => "btn btn-primary"%>
 	</div>
