@@ -1,5 +1,5 @@
 <div class="card-category">
-  <% if (params[:action] == "index") %>
+  <% if !(params["dates"].nil? || params["dates"]["range"] == "") %>
     <div class="card-trip-selectable" id="<%= card.id %>">
   <% else %>
     <div class="card-trip" id="<%= card.id %>">
