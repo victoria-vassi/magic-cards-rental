@@ -3,23 +3,25 @@
     <div class="col-md-6 mx-auto">
       <div class="card p-5 m-5" >
 
-        <h3> Create New Card Listing </h3>
+        <h3> Create New Review </h3>
 
 
-        <%= simple_form_for(@card) do |f| %>
-        <%= f.error_notification %>
-
+        <%= simple_form_for([@card, @review])  do |f| %>
+        <%= render "shared/errors", object: @review %>
+        <h6>Name:  <%= current_user.first_name %>  <%=current_user.last_name %></h6>
+        <br>
         <div class="form-inputs">
-            <%= f.input :name, as: :select, collection:@name_list %>
 
+            <%= f.select :stars, Review::STARS, prompt: "Number of Stars" %>
 
-            <%= f.input :price_per_week,
+            <%= f.input :comment,
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "Price per Week" } %>
+                        input_html: { autocomplete: "Comment" } %>
           </div>
+          <br>
             <div class="form-actions">
-              <%= f.button :submit, "Create New Card Listing", class: "btn btn-flat"%>
+              <%= f.button :submit, "Create New Review", class: "btn btn-flat"%>
             </div>
           <% end %>
       </div>

@@ -6,14 +6,14 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def index
-    record.user == user
+    record.user == use
   end
 
-  def new
-    record.user == user
+  def new?
+    create?
   end
 
-  def create
-    record.user == user
+  def create?
+    user
   end
 end

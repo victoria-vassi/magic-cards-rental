@@ -43,6 +43,8 @@
         <span class="dot" style="background-color: <%= card.color.downcase %>"></span>
       <% else %>
       <% end %>
+
     </div>
   </div>
+  <%= link_to 'See All Reviews',card_reviews_path(card)  %>
 </div>
