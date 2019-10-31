@@ -28,10 +28,10 @@
               <div class="dropdown-menu dropdown-menu-right border-none" style = "border: none;" aria-labelledby="navbarDropdown">
 
                 <%= link_to "Profile", user_profile_path(current_user), class: "dropdown-item" %>
-                <%= link_to "Saved", "#", class: "dropdown-item" %>
+                <%= link_to "Favorites", "#", class: "dropdown-item" %>
 
                 <% if policy(Card).create? %>
-                  <%= link_to 'Add Rental Card', new_card_path, class: "dropdown-item" %>
+                  <%= link_to 'Add Card', new_card_path, class: "dropdown-item" %>
                 <% end %>
 
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

@@ -6,7 +6,7 @@ require 'faker'
 puts "Seeding 8 buyers (user), 8 sellers (user), 8 cards and 8 bookings..."
 puts "------------------"
 
-for i in (1..50) do
+for i in (1..8) do
   id = rand(1..4880)
   url = "https://api.magicthegathering.io/v1/cards/#{id}"
   card_serialized = open(url).read

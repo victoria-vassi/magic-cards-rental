@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    #authorize @booking
     @card = Card.find(params[:card_id])
     authorize @card
     @user = current_user
