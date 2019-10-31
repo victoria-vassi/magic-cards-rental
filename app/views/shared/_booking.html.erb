@@ -1,29 +1,29 @@
-
 <div class="card-category">
   <div class="card-trip" style="min-height: 500px;" >
     <div class="m-3">
-      <h3> Book this card </h3>
-      <div id='card-booking-dates' data-unavailable="<%= @card.unavailable_dates.to_json %>">
-        <% if current_user.id != @card.user_id  %>
-          <%= simple_form_for [@card, @booking] do |f| %>
-          <%= f.error_notification %>
-            <div class="form-inputs">
-              <%= f.input :start_date,
-                          as: :string,
-                          type: :DateTimeType,
-                          label: 'When do you want to book it ?'
-                          %>
-            </div>
-            <div class="total_price">
-             <!--  <h2> <%#= @total_price %></h2>  --><!-- Use javascript -->
-            </div>
-            <div class="form-actions">
-              <%= f.button :submit, "Book this card", class: "btn btn-flat"%>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <% if current_user.id != @card.user_id  %>
+        <h3> Book this card </h3>
+          <div id='card-booking-dates' data-unavailable="<%= @card.unavailable_dates.to_json %>">
+            <%= simple_form_for [@card, @booking] do |f| %>
+            <%= f.error_notification %>
+              <div class="form-inputs">
+                <%= f.input :start_date,
+                            as: :string,
+                            type: :DateTimeType,
+                            label: 'When do you want to book it ?'
+                            %>
+              </div>
+                <div class="booking_js my-5" id="booking_js">
+              </div>
+                <div class="form-actions">
+                  <%= f.button :submit, "Book this card", class: "btn btn-flat"%>
+                </div>
+                <% end %>
+        <% else %>
+         <div id="card_owner">
+            <%=link_to "Go back to your profile", user_profile_path(current_user) %>
+          </div>
+      <% end %>
     </div>
   </div>
-
 </div>

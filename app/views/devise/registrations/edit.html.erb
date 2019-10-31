@@ -28,8 +28,9 @@
         </div>
 
         <div class="form-actions">
-          <button type="button" class="btn btn-outline-primary"><%= f.button :submit, "Update" %></button>
-           <%= link_to "Cancel", :back %>
+          <%= f.button :submit, "Update", class: "btn btn-flat"%>
+            <%#= link_to "Update" :class => "btn btn-flat"%>
+           <%= link_to "Cancel", :back, class: "btn btn-flat" %>
         </div>
         <% end %>
       </div>

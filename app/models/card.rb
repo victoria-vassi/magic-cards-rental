@@ -14,4 +14,15 @@ class Card < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
+
+  def available?(start_date, end_date)
+    bool = true
+    bookings.each do |booking|
+      if booking.start_date > end_date || booking.end_date < start_date
+      else
+        bool = false
+      end
+    end
+    bool
+  end
 end
