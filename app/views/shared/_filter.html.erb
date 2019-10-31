@@ -5,7 +5,9 @@
       <%= f.input :range,
                   as: :string,
                   type: :DateTimeType,
-                  label: 'When do you want to book cards?'
+                  label: 'When do you want to book cards?',
+                  input_html: { value: @last_input },
+                  required: true
                   %>
     </div>
     <div class="form-actions">
