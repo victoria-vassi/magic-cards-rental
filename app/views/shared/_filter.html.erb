@@ -1,17 +1,21 @@
 <div id='card-booking-dates'>
-  <%= simple_form_for(:dates, method: :get, url: cards_path) do |f| %>
+  <%= simple_form_for(:dates, method: :get, url: cards_path, wrapper: :inline_form, html: { class: 'form-inline' }) do |f| %>
   	<%= f.error_notification %>
     <div class="form-inputs">
       <%= f.input :range,
                   as: :string,
                   type: :DateTimeType,
-                  label: 'When do you want to book cards?',
-                  input_html: { value: @last_input },
-                  required: true
+                  input_html: { value: @last_input, style: "width: 265px; margin-right: 20px;"},
+                  required: true,
+                  placeholder: "Select booking dates"
                   %>
     </div>
     <div class="form-actions">
-      <%= f.button :submit, "Filter", class: "btn btn-flat"%>
+      <%= f.button :submit,
+      						 "Filter",
+      						 style: "margin: 0;",
+      						 class: "btn btn-flat"
+      						 %>
     </div>
   <% end %>
 </div>
