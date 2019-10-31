@@ -9,7 +9,7 @@
 <!-- Tab content -->
 <div id="Profile" class="tabcontent" style="display: block;">
 
-  <div class="container">
+  <div class="container" style="padding-top: 15px">
     <div class="row">
           <h4 ><%= @user.first_name + " " + @user.last_name %></h4></div>
             <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
@@ -37,33 +37,58 @@
   </div>
 
 <div id="Bookings" class="tabcontent">
-  <div class="container">
-  <h3>Bookings Received</h3>
-  <%# @bookings_received.each do |b| %>
-    <p><%#= b.price %></p>
-  <%# end %>
+    <div class="container" style="padding-top: 15px">
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Bookings Received</h4>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <% @bookings_received.each do |b| %>
+                <%= b.start_date %>
+                <%= b.end_date %>
+                <%= b.total_price %>
+              <% end %>
+            </div>
+          </div>
+        </div>
 
-  <h3>Bookings Made</h3>
-  <%# @bookings_made.each do |b| %>
-    <p><%#= b.price %></p>
-  <%# end %>
-</div>
+        <div class="col-lg-6">
+          <h4>Bookings Made</h4>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                  <% @bookings_made.each do |b| %>
+                  <%= b.start_date %>
+                  <%= b.end_date %>
+                  <%= b.total_price %>
+                <% end %>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
 </div>
 
-<div id="Cards" class="tabcontent">
-  <h3>Cards</h3>
+
+<div id="Cards" class="tabcontent" style="padding-top: 15px">
+  <h4>Cards</h4>
     <div class="cards pb-5">
-
-  <% @cards.each do |card| %>
-    <%= render 'shared/card', card: card %>
-    <%= link_to "Delete", card_path(card), method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
+    <% @cards.each_with_index do |card, index| %>
+      <%= render 'shared/card', card: card %>
+        <div class="cards-icon container">
+          <div class="row">
+            <div class="cards-hover col-6">
+              <%= link_to "Edit", edit_card_path(card), class: "btn btn-flat"%>
+            </div>
+            <div class="cards-hover col-6">
+               <button id="sweet-alert-demo-<%= index %>" class="btn btn-flat">Delete</button>
+              <%= link_to '', card_path(card), method: :delete, id: "delete-link-#{index}", class: "hidden" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-
-
-
-
-
 

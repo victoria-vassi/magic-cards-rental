@@ -12,7 +12,6 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     @bookings = Booking.where("card_id = #{params[:id]}")
     @booking = Booking.new
-
   end
 
   def new
@@ -45,6 +44,8 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     @card.update(card_params)
     authorize @card
+
+    redirect_to user_profile_path(current_user)
   end
 
   def destroy
