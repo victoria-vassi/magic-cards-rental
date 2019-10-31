@@ -1,13 +1,13 @@
 function refreshSelectorbar() {
 	function toggleRedBoxShadow(card_id) {
 		var element = document.getElementById(card_id);
-		element.classList.toggle("selected");
+		element.classList.toggle("card-selected");
 	};
 
 	function countSelectedElements() {
-	  var count = document.querySelectorAll(".selected").length;
+	  var count = document.querySelectorAll(".card-selected").length;
 	  var element = document.getElementById("text-count");
-	  element.innerText = `${count} Cards selected`
+	  element.innerText = `${count} cards selected`
 	};
 
 	const cards = document.querySelectorAll(".card-trip-selectable");
