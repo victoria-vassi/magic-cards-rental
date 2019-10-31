@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
  before_action :set_booking, only: [:show]
-  
+
  def index
    @bookings = Booking.all
  end
@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
 
  def create
     @booking = Booking.new(booking_params)
+    #authorize @booking
     @card = Card.find(params[:card_id])
     @user = current_user
     @range = params["booking"]["start_date"]
