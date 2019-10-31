@@ -1,6 +1,8 @@
 <div class="container" style="margin-bottom: 100px;">
 	<h3 class="my-5">All cards</h3>
 
+	<%= render 'shared/filter', card: @card %>
+
 	<div class="cards pb-5">
 	  <% @cards.each do |card| %>
 	    <%= render 'shared/card', card: card %>

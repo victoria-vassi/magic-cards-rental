@@ -1,0 +1,15 @@
+<div id='card-booking-dates'>
+  <%= simple_form_for(:dates, method: :get, url: cards_path) do |f| %>
+  	<%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :range,
+                  as: :string,
+                  type: :DateTimeType,
+                  label: 'When do you want to book cards?'
+                  %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Filter", class: "btn btn-flat"%>
+    </div>
+  <% end %>
+</div>
