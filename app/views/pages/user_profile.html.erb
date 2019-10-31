@@ -2,13 +2,13 @@
 <!-- Tab links -->
 <div class="tab mx-auto">
   <button class="tablinks active">Profile</button>
-  <button class="tablinks">Bookings</button>
+  <button class="tablinks">Bookings Received </button>
+  <button class="tablinks">Bookings Made </button>
   <button class="tablinks">Cards</button>
 </div>
 
 <!-- Tab content -->
 <div id="Profile" class="tabcontent" style="display: block;">
-
   <div class="container" style="padding-top: 15px">
     <div class="row">
           <h4 ><%= @user.first_name + " " + @user.last_name %></h4></div>
@@ -36,59 +36,110 @@
       </div>
   </div>
 
-<div id="Bookings" class="tabcontent">
+
+
+
+
+
+
+
+<div id="Bookings Received" class="tabcontent">
     <div class="container" style="padding-top: 15px">
       <div class="row">
         <div class="col-lg-6">
-          <h4>Bookings Received</h4>
-          <div class="card-product">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <h4>Upcoming bookings </h4>
+            <% @bookings_received_upcoming.each do |b| %>
+          <div class="card-product" style="margin-top: 10px">
+            <%= image_tag b.card.img_url %>
               <div class="card-product-infos">
-                <% @bookings_received.each do |b| %>
-                <%= b.start_date %>
-                <%= b.end_date %>
-                <%= b.total_price %>
+                  <h4> <%= b.card.name %>  </h4>
+                  <p> Start date: <%= b.start_date %> </p>
+                  <p> End date: <%= b.end_date %></p>
+                  <p> Total price: $ <%= b.total_price %> </p>
               <% end %>
             </div>
           </div>
         </div>
 
+
         <div class="col-lg-6">
-          <h4>Bookings Made</h4>
-          <div class="card-product">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <h4>Past bookings</h4>
+            <% @bookings_received_past.each do |b| %>
+          <div class="card-product" style="margin-top: 10px">
+             <%= image_tag b.card.img_url %>
               <div class="card-product-infos">
-                  <% @bookings_made.each do |b| %>
-                  <%= b.start_date %>
-                  <%= b.end_date %>
-                  <%= b.total_price %>
-                <% end %>
+                <h4> <%= b.card.name %>  </h4>
+                <p> Start date: <%= b.start_date %> </p>
+                <p> End date: <%= b.end_date %></p>
+              <p> Total price: $ <%= b.total_price %> </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="Bookings Made" class="tabcontent">
+    <div class="container" style="padding-top: 15px">
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>My upcoming bookings</h4>
+            <% @bookings_made_upcoming.each do |b| %>
+              <div class="card-product" style="margin-top: 10px">
+                <%= image_tag b.card.img_url %>
+                  <div class="card-product-infos">
+                    <h4> <%= b.card.name %>  </h4>
+                    <p> Start date: <%= b.start_date %> </p>
+                    <p> End date: <%= b.end_date %></p>
+                    <p> Total price: $ <%= b.total_price %> </p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+
+        <div class="col-lg-6">
+          <h4>My past bookings</h4>
+            <% @bookings_made_past.each do |b| %>
+          <div class="card-product" style="margin-top: 10px">
+            <%= image_tag b.card.img_url %>
+              <div class="card-product-infos">
+                <h4> <%= b.card.name %>  </h4>
+                <p> Start date: <%= b.start_date %> </p>
+                <p> End date: <%= b.end_date %></p>
+              <p> Total price: $ <%= b.total_price %> </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+
+<div id="Cards" class="tabcontent">
+  <div class="container" style="padding-top: 15px">
+    <h4>Cards</h4>
+      <div class="cards pb-5">
+      <% @cards.each_with_index do |card, index| %>
+        <%= render 'shared/card', card: card %>
+          <div class="cards-icon container">
+            <div class="row">
+              <div class="cards-hover col-6">
+                <%= link_to "Edit", edit_card_path(card), class: "btn btn-flat"%>
               </div>
+              <div class="cards-hover col-6">
+                 <button id="sweet-alert-demo-<%= index %>" class="btn btn-flat">Delete</button>
+                <%= link_to '', card_path(card), method: :delete, id: "delete-link-#{index}", class: "hidden" %>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
     </div>
   </div>
 </div>
-
-
-<div id="Cards" class="tabcontent" style="padding-top: 15px">
-  <h4>Cards</h4>
-    <div class="cards pb-5">
-    <% @cards.each_with_index do |card, index| %>
-      <%= render 'shared/card', card: card %>
-        <div class="cards-icon container">
-          <div class="row">
-            <div class="cards-hover col-6">
-              <%= link_to "Edit", edit_card_path(card), class: "btn btn-flat"%>
-            </div>
-            <div class="cards-hover col-6">
-               <button id="sweet-alert-demo-<%= index %>" class="btn btn-flat">Delete</button>
-              <%= link_to '', card_path(card), method: :delete, id: "delete-link-#{index}", class: "hidden" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
