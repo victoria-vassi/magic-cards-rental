@@ -1,8 +1,4 @@
-<video id="video-home" autoplay="autoplay" muted="muted" poster="https://magic.wizards.com/sites/mtg/files/MTGA_Garruk_preloader_0.jpg" loop>
-  <source type = "video/webm" src="https://media.magic.wizards.com/MTGA_Garruk_3.webmhd.webm">
-  <source type = "video/mp4" src="https://media.magic.wizards.com/MTGA_Garruk_4.mp4">
-</video>
-
+<%=  video_tag 'new_mp4.mp4', id: "video-home", autoplay: true, loop: true, muted: true, autobuffer: true%>
 
 <div class="logo-container">
     <%= link_to root_path do %>
