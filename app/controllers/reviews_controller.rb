@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
- before_action :set_card
+ before_action :set_card,only: [:show]
 
     def index
+      @card = set_card
       @reviews = policy_scope(@card.reviews)
       score = 0
       @reviews.each{|review| score += review.stars }
@@ -13,18 +14,19 @@ class ReviewsController < ApplicationController
     end
 
     def new
+      @card = set_card
       @review = @card.reviews.new #creates new review
       authorize @review
     end
 
     def create
-
+      @card = Card.find(params[:card_id])
       @review = @card.reviews.new(review_params)
       @review.name = (current_user.first_name + " " + current_user.last_name) #only takes the username from current user
       authorize @review
       if @review.save
 
-        redirect_to card_reviews_path(@card)
+        redirect_to card_path(@card)
       else
         render :new
       end

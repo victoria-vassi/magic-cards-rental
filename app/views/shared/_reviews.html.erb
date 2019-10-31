@@ -1,21 +1,10 @@
-<header id="content-header">
-
-
-
-  <div class = "d-flex justify-content-center">
-    <img src="<%= @card.img_url%>" alt=""  class="rounded" style = "max-width: 200px; max-height: 300px; text-align: center">
-  </div>
-</header>
-<br>
-<br>
-
 <div class="container">
   <div class = "d-flex justify-content-center border-bottom-1">
-    <h1>Reviews and Comments for <%= link_to(@card.name, @card) %></h1>
+    <h1> Recent Reviews and Comments </h1>
   </div>
   <div style = "text-align: center"><h3>Overall Rating: <%= @overall_rating %></h3></div>
-  <% @reviews.each do |review| %>
-  <div class="card">
+  <% @reviews.last(4).each do |review| %> <!--Only first 4 reviews-->
+    <div class="card">
       <div class="card-body">
           <div class="row">
               <div class="col-md-2">
@@ -47,8 +36,5 @@
   <% end %>
   <div class = "d-flex justify-content-center">
   <button type="button" class="btn btn-primary btn-lg"><%= link_to "Write Review", new_card_review_path(@card), style: "color: white;" %></button>
-   <%= link_to "Back", cards_path, :class => "btn btn-flat"%>
-   </div>
+  </div>
 </div>
-
-
