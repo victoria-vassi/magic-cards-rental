@@ -38,7 +38,7 @@
           <% end %>
         </p>
       </div>
-      <h2 class="card-trip-pricing">€<%= card.price_per_week %></h2>
+      <h2 class="card-trip-pricing">€<span id="card_price"><%= card.price_per_week %></span></h2>
       <% if !card.color.nil? %>
         <span class="dot" style="background-color: <%= card.color.downcase %>"></span>
       <% else %>
