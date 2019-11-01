@@ -8,12 +8,21 @@
       </div>
     </div>
   </div>
-  <%= render 'shared/reviews', card:@card %>
+
+</div>
+  <% if @card.reviews.any?  %>
+    <%= render 'shared/reviews', card:@card %>
+  <% else %>
+    <div class="py-5 d-flex justify-content-center flex-column" style = "height:100px; width: 300px">
+      Be the first to leave a review for <%= @card.name %>
+      <button type="button" class="btn btn-primary btn-md"><%= link_to "Write Review", new_card_review_path(@card), style: "color: white;" %></button>
+     </div>
+  <% end %>
   <div class="py-5 d-flex justify-content-center">
     <%= link_to "Back", cards_path, :class => "btn btn-flat"%>
+=======
   </div>
 </div>
-
 
 
 
