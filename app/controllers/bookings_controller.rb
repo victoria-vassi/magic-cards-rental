@@ -1,21 +1,22 @@
 class BookingsController < ApplicationController
- before_action :set_booking, only: [:show]
+  before_action :set_booking, only: [:show]
 
- def index
-   @bookings = Booking.all
- end
+  def index
+    @bookings = Booking.all
+  end
 
- def show
-   @booking = Booking.find(params[:id])
- end
+  def show
+    @booking = Booking.find(params[:id])
+  end
 
- def new
-   @booking = Booking.new
-   @card = Card.find(params[:card_id])
-   authorize @card
- end
+  def new
+    @booking = Booking.new
+    @card = Card.find(params[:card_id])
+    authorize @card
+    authorize @booking
+  end
 
- def create
+  def create
     @booking = Booking.new(booking_params)
     #authorize @booking
     @card = Card.find(params[:card_id])
@@ -30,23 +31,22 @@ class BookingsController < ApplicationController
     @booking.card = @card
     @booking.user = @user
     @booking.total_price = @total_price
-   if @booking.save
-     redirect_to card_path(@card)
-   else
+    authorize @booking
+    if @booking.save
+      redirect_to card_path(@card)
+    else
       @bookings = Booking.where("card_id = '#{params[:card_id]}'")
-      raise
       render 'cards/show'
-   end
- end
+    end
+  end
 
- private
- def set_booking
-   @booking = Booking.find(params[:id])
- end
+  private
 
- def booking_params
-   params.require(:booking).permit(:start_date, :end_date, :total_price, :card_id)
- end
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
-
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :total_price, :card_id)
+  end
 end
