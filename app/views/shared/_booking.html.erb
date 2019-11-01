@@ -6,11 +6,12 @@
           <div id='card-booking-dates' data-unavailable="<%= @card.unavailable_dates.to_json %>">
             <%= simple_form_for [@card, @booking] do |f| %>
             <%= f.error_notification %>
-              <div class="form-inputs">
+              <div class="form-inputs mt-3">
                 <%= f.input :start_date,
                             as: :string,
                             type: :DateTimeType,
-                            label: 'When do you want to book it ?'
+                            label: false,
+                            placeholder: 'Click here to select dates'
                             %>
               </div>
                 <div class="info_booking">
