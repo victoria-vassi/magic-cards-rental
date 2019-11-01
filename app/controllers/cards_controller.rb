@@ -55,12 +55,15 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     @card.update(card_params)
     authorize @card
+
+    redirect_to user_profile_path(current_user)
   end
 
   def destroy
     @card = Card.find(params[:id])
     authorize @card
     @card.destroy
+
     redirect_to user_profile_path(current_user)
   end
 
