@@ -24,7 +24,7 @@ function setConfirmation() {
 	  return totalPrice;
 	};
 
-	button.addEventListener("click", (event) => {
+	button && button.addEventListener("click", (event) => {
 	  nameList.innerText = "";
 	  const selectedCards = document.querySelectorAll(".card-selected");
 
@@ -59,7 +59,7 @@ function setConfirmation() {
     const buttonBook = document.getElementById("button-book")
     const modalFooter = document.querySelector(".modal-footer")
 
-    buttonBook.addEventListener("click", (event) => {
+    buttonBook && buttonBook.addEventListener("click", (event) => {
 		  buttonBook.value="Successful!!!";
 		  modalFooter.insertAdjacentHTML("afterbegin", `<p class="pr-2 mb-0" style="color: #00bf6a"><strong>Successful!!!</strong></p>`);
 	  });

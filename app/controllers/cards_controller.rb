@@ -18,7 +18,7 @@ class CardsController < ApplicationController
       end
     end
     @booking = Booking.new
-    @card = Card.find(1)
+    @card = Card.first
   end
 
   def show

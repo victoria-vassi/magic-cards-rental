@@ -128,15 +128,17 @@
       <div class="cards pb-5">
       <% @cards.each_with_index do |card, index| %>
         <%= render 'shared/card', card: card %>
-          <div class="cards-icon container">
+          <div class="cards-icon ">
             <div class="row">
               <div class="cards-hover col-6">
                 <%= link_to "Edit", edit_card_path(card), class: "btn btn-flat"%>
               </div>
               <div class="cards-hover col-6">
                 <% if card.bookings.empty? %>
-                 <button id="sweet-alert-demo-<%= index %>" class="btn btn-flat">Delete</button>
-                <%= link_to '', card_path(card), method: :delete, id: "delete-link-#{index}", class: "hidden" %>
+                 <button data-id="<%= card.id %>" id="sweet-alert-demo-<%= card.id %>" class="sweet-alert-btn btn btn-flat">Delete</button>
+                <%= link_to '', card_path(card), method: :delete, id: "delete-link-#{card.id}", class: "hidden" %>
+              <% else %>
+                <button class="button-not-delete btn btn-flat">Delete</button>
               <% end %>
               </div>
             </div>
