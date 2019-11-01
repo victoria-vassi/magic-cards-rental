@@ -1,8 +1,8 @@
 <div class="container">
   <div class = "d-flex justify-content-center border-bottom-1">
-    <h1> Recent Reviews and Comments </h1>
+    <h3> Recent Reviews and Comments </h3>
   </div>
-  <div style = "text-align: center"><h3>Overall Rating: <%= @overall_rating %></h3></div>
+  <div style = "text-align: center"><h5>Overall Rating: <%= @overall_rating %></h5></div>
   <% @reviews.last(4).each do |review| %> <!--Only first 4 reviews-->
     <div class="card">
       <div class="card-body">
