@@ -1,0 +1,40 @@
+<div class="container">
+  <div class = "d-flex justify-content-center border-bottom-1">
+    <h1> Recent Reviews and Comments </h1>
+  </div>
+  <div style = "text-align: center"><h3>Overall Rating: <%= @overall_rating %></h3></div>
+  <% @reviews.last(4).each do |review| %> <!--Only first 4 reviews-->
+    <div class="card">
+      <div class="card-body">
+          <div class="row">
+              <div class="col-md-2">
+                  <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+                  <p class="text-secondary text-center"><%= time_ago_in_words(review.created_at) %> ago</p>
+              </div>
+              <div class="col-md-10">
+                  <p>
+                     <strong><%= review.name %></strong></a>
+                       <% (review.stars).times do %>
+                        <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                       <% end %>
+
+
+
+
+
+                 </p>
+                 <div class="clearfix"></div>
+                  <p> &quot;<%= review.comment %>&quot;</p>
+
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+  <% end %>
+  <div class = "d-flex justify-content-center">
+  <button type="button" class="btn btn-primary btn-lg"><%= link_to "Write Review", new_card_review_path(@card), style: "color: white;" %></button>
+  </div>
+</div>

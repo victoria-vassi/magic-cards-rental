@@ -23,6 +23,14 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     @bookings = Booking.where("card_id = #{params[:id]}")
     @booking = Booking.new
+    @reviews = @card.reviews
+    score = 0
+      @reviews.each{|review| score += review.stars }
+      if @reviews.count == 0
+        @overall_rating =0
+      else
+       @overall_rating = sprintf('%.2f', (score / @reviews.count)) #round two decimals points
+      end
   end
 
   def new
@@ -30,6 +38,8 @@ class CardsController < ApplicationController
     @name_list = @card_list.each.map {|element| element[:name]}
     @card = Card.new
     authorize @card
+    @review = @card.reviews.new #creates new review
+    authorize @review
   end
 
   def create
