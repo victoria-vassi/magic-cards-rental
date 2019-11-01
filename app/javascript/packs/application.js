@@ -24,3 +24,21 @@ document.querySelectorAll(".cards-icon.container .cards-hover:last-of-type").for
   });
 })
 
+// document.querySelectorAll(".cards-icon.container .cards-hover:last-of-type").forEach((card, index) => {
+//   initSweetalert(`#sweet-alert-demo-${index}`,
+//     swal ({
+//     title: "Are you sure?",
+//     text: "This action cannot be reversed",
+//     icon: "warning",
+//     buttons: true,
+//     dangerMode: true,
+//   })
+//   .then((willDelete) => {
+//     if (willDelete) {
+//        swal("Poof! Your file has been deleted!", {
+//        icon: "success",
+//       });
+//     } else {
+//     swal("Your file is safe!");
+//     }
+//   })
