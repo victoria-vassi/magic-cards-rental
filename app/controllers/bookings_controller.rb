@@ -32,9 +32,9 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.total_price = @total_price
     authorize @booking
-    if @booking.save
-      redirect_to card_path(@card)
-    else
+   if @booking.save
+     redirect_to user_profile_path(@user)
+   else
       @bookings = Booking.where("card_id = '#{params[:card_id]}'")
       render 'cards/show'
     end
