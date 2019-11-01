@@ -18,6 +18,23 @@ openCity();
 calculatePrice();
 setConfirmation();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.querySelectorAll(".cards-icon.container .cards-hover:last-of-type").forEach((card, index) => {
   initSweetalert(`#sweet-alert-demo-${index}`, {
     title: "Are you sure?",

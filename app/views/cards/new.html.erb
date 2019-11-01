@@ -5,18 +5,16 @@
 
         <h3> Create New Card Listing </h3>
 
-
-        <%= simple_form_for([@card, @review])  do |f| %>
+        <%= simple_form_for(@card) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
-
-            <%= f.select :stars, Review::STARS, prompt: "Pick one" %>
-            <%= f.input :comment,
+            <%= f.input :name, as: :select, collection:@name_list %>
+            <%= f.input :price_per_week,
                         required: true,
                         autofocus: true,
                         input_html: { autocomplete: "Price per Week" } %>
-          </div>
+        </div>
             <div class="form-actions">
               <%= f.button :submit, "Create New Card Listing", class: "btn btn-flat"%>
             </div>
