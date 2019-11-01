@@ -8,12 +8,15 @@ import { openCity } from '../components/tabbar';
 import { typewriter } from '../components/typewriter';
 import { initSweetalert } from '../components/init_sweetalert';
 import { calculatePrice } from '../components/calculateprice';
+import { setConfirmation } from '../components/setConfirmation';
+
 
 calendar();
 filter();
 refreshSelectorbar();
 openCity();
 calculatePrice();
+setConfirmation();
 
 document.querySelectorAll(".cards-icon.container .cards-hover:last-of-type").forEach((card, index) => {
   initSweetalert(`#sweet-alert-demo-${index}`, {
