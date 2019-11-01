@@ -17,6 +17,8 @@ class CardsController < ApplicationController
         @cards << card if card.available?(start_date, end_date)
       end
     end
+    @booking = Booking.new
+    @card = Card.find(1)
   end
 
   def show

@@ -21,6 +21,10 @@ class BookingPolicy < ApplicationPolicy
     user
   end
 
+  def createmany?
+    user
+  end
+
   def edit?
     update?
   end
