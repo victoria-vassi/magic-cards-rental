@@ -1,9 +1,6 @@
 <div class="container" style="margin-bottom: 100px;">
-	<h3 class="my-5">Available cards</h3>
-
 	<div class="my-5">
-		<%= render 'shared/filter', card: @card %>
-		
+		<%= render 'shared/filter' %>
 	</div>
 
 	<div class="cards pb-5">
@@ -15,6 +12,4 @@
 </div>
 
 <%= render 'shared/selectorbar' %>
-<%= render 'shared/confirmation' %>
-
-
+<%= render 'shared/confirmation', booking: @booking %>

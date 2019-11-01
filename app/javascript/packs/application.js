@@ -74,3 +74,17 @@ const initSweetalert = (selector, options = {}, callback = () => {}) => {
 // })
 
 
+
+document.querySelectorAll(".cards-icon.container .cards-hover:last-of-type").forEach((card, index) => {
+  initSweetalert(`#sweet-alert-demo-${index}`, {
+    title: "Are you sure?",
+    text: "This action cannot be reversed",
+    icon: "warning"
+  }, (value) => {
+    if (value) {
+      const link = document.querySelector(`#delete-link-${index}`);
+      link.click();
+    }
+  });
+})
+

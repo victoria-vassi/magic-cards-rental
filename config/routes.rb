@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :index, :show]
     resources :reviews, only:[:index, :create, :new]
   end
+
+  post 'bookings', to: 'bookings#createmany'
 end

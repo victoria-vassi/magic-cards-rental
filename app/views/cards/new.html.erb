@@ -1,21 +1,24 @@
-<div class=“container”>
- <div class=“row”>
-   <div class= "col-md-6 mx-auto">
-     <div class= "card p-5 m-5" >
-       <h3> Create New Card Listing </h3>
-         <%= simple_form_for @card  do |f| %>
-         <%= f.error_notification %>
-       <div class=“form-inputs”>
-           <%= f.input :name, as: :select, collection:@name_list %>
-           <%= f.input :price_per_week,
-                       required: true,
-                       autofocus: true,
-                       input_html: { autocomplete: "Price per Week" } %>
-         </div>
-           <div class=“form-actions”>
-             <%= f.button :submit, "Create New Card Listing", class: "btn btn-flat" %>
-           </div>
-         <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card p-5 m-5" >
+
+        <h3> Create New Card Listing </h3>
+
+        <%= simple_form_for(@card) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+            <%= f.input :name, as: :select, collection:@name_list %>
+            <%= f.input :price_per_week,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "Price per Week" } %>
+        </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Create New Card Listing", class: "btn btn-flat"%>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>

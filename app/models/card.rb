@@ -7,7 +7,7 @@ class Card < ApplicationRecord
   validates :name, presence: true
   validates :card_type, presence: true
   validates :img_url, presence: true
-  validates :price_per_week, presence: true
+  validates :price_per_week, presence: true, numericality: {greater_than_or_equal_t: 1}
 
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|

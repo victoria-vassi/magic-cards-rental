@@ -9,7 +9,7 @@ User.destroy_all
 
 
 # Generating a card, with its associated user(buyer) and booking with its associated user(buyer) and card(whose user_id belongs to the seller). Generating x instances.
-puts "Seeding 8 buyers (user), 8 sellers (user), 8 cards and 8 bookings..."
+puts "Seeding 8 buyers (user), 8 sellers (user), 8 cards and 8 bookings, adding Reviews..."
 puts "------------------"
 
 dev = User.create(
@@ -123,4 +123,19 @@ for i in (1..8) do
   else
     puts new_booking.errors.messages
   end
+
+  for i in (1..2)
+    new_review = Review.new(name: "#{Faker::FunnyName.two_word_name}",
+    comment: "#{Faker::GreekPhilosophers.quote}", stars:rand(1..5), card_id: new_card.id )
+    new_review.save
+    if new_review.errors.empty?
+      puts "Review created"
+      puts "------------------"
+    else
+      puts new_booking.errors.messages
+    end
+  end
+
+
 end
+

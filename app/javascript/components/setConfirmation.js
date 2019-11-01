@@ -5,7 +5,7 @@ function setConfirmation() {
 	const nameList = document.getElementById("name-list");
 	const datesRange = document.getElementById("dates_range")
 	const totalPriceTag = document.getElementById("total-price")
-  const totalPricePreviewTag = document.getElementById("total-price-preview")
+    const totalPricePreviewTag = document.getElementById("total-price-preview")
 
 	function calculateDays() {
 	  const endDate = new Date(datesRange.value.split(" ")[2])
@@ -24,31 +24,45 @@ function setConfirmation() {
 	  return totalPrice;
 	};
 
-  if (button) {
-  	button.addEventListener("click", (event) => {
-  	  nameList.innerText = "";
-  	  const selectedCards = document.querySelectorAll(".card-selected");
-  	  selectedCards.forEach((card) => {
-  	  	console.log(selectedCards)
-  	    var name = card.children[1].children[0].children[0].innerText
-  	    nameList.insertAdjacentHTML("beforeend", `<p>${name}</p>`);
-  	  });
-  	  const numberOfDays = calculateDays();
-  	  const totalPrice = calculateSum(numberOfDays);
-  	  totalPriceTag.innerText = `€ ${totalPrice}`
-  	});
-  }
+	button.addEventListener("click", (event) => {
+	  nameList.innerText = "";
+	  const selectedCards = document.querySelectorAll(".card-selected");
 
+	  selectedCards.forEach((card) => {
+	  	console.log(selectedCards)
+	    var name = card.children[1].children[0].children[0].innerText
+	    nameList.insertAdjacentHTML("beforeend", `<p>${name}</p>`);
+	  });
+	  const numberOfDays = calculateDays();
+	  const totalPrice = calculateSum(numberOfDays);
+	  totalPriceTag.innerText = `€ ${totalPrice}`
 
-  if (cards) {
-  	cards.forEach((card) => {
-  	  card.addEventListener("click", (event) => {
-  		  const numberOfDays = calculateDays();
-  		  const totalPrice = calculateSum(numberOfDays);
-  		  totalPricePreviewTag.innerText = `(€ ${totalPrice} total)`
-  	  });
-  	});
-  }
+	  var idList = []
+		selectedCards.forEach((card) => {
+		  var id = card.id
+		  idList.push(id);
+		});
+	  console.log(idList.join(" "));
+
+	  const card = document.querySelector("#cards")
+	  card.value=idList.join(" ")
+	});
+
+	cards.forEach((card) => {
+	  card.addEventListener("click", (event) => {
+		  const numberOfDays = calculateDays();
+		  const totalPrice = calculateSum(numberOfDays);
+		  totalPricePreviewTag.innerText = `(€ ${totalPrice} total)`
+	  });
+	});
+
+    const buttonBook = document.getElementById("button-book")
+    const modalFooter = document.querySelector(".modal-footer")
+
+    buttonBook.addEventListener("click", (event) => {
+		  buttonBook.value="Successful!!!";
+		  modalFooter.insertAdjacentHTML("afterbegin", `<p class="pr-2 mb-0" style="color: #00bf6a"><strong>Successful!!!</strong></p>`);
+	  });
 
 };
 

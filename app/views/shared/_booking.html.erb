@@ -1,19 +1,23 @@
 <div class="card-category">
-  <div class="card-trip" style="min-height: 500px;" >
+  <div class="card-trip" style="min-height: 100px;" >
     <div class="m-3">
       <% if current_user.id != @card.user_id  %>
         <h3> Book this card </h3>
           <div id='card-booking-dates' data-unavailable="<%= @card.unavailable_dates.to_json %>">
             <%= simple_form_for [@card, @booking] do |f| %>
             <%= f.error_notification %>
-              <div class="form-inputs">
+              <div class="form-inputs mt-3">
                 <%= f.input :start_date,
                             as: :string,
                             type: :DateTimeType,
-                            label: 'When do you want to book it ?'
+                            label: false,
+                            placeholder: 'Click here to select dates'
                             %>
               </div>
-                <div class="booking_js my-5" id="booking_js">
+                <div class="info_booking">
+                  <div id="price_days">
+                  </div>
+                </div>
               </div>
                 <div class="form-actions">
                   <%= f.button :submit, "Book this card", class: "btn btn-flat"%>

@@ -13,15 +13,15 @@ const rangeDatesInput = document.querySelector("#booking_start_date")
     const pricePerDay = (document.querySelector("#card_price").innerText)
     const bookingTotal = numberOfDays * pricePerDay
     // showing the booking total in HTML
-    const showBookingPrice = document.querySelector("#booking_js")
+    const showBookingPrice = document.querySelector("#price_days")
     if (endDate > startDate){
-    showBookingPrice.innerHTML = `Numbers of days : ${numberOfDays} <br>
-                                 Price per day : ${pricePerDay} $ <br>
-                                 Total : ${bookingTotal} $`
+    showBookingPrice.innerHTML = `  Total price : <br>
+                                    ${pricePerDay}€ x ${numberOfDays} days = ${(pricePerDay*numberOfDays)}€`
+    showBookingPrice.classList.add("btn", "text-white", "btn-dark", "rounded", "mb-3", "text-left", "btn-outline-dark" )
     showBookingPrice.style.display = "show"
     }
     else {
-    showBookingPrice.innerHTML = ` Please select two different dates`
+    showBookingPrice.innerHTML = `Please select two different dates`
     showBookingPrice.style.display = "show"
     }
  })
