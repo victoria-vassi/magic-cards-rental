@@ -1,5 +1,5 @@
 <div class="card-category">
-  <div class="card-trip" style="min-height: 500px;" >
+  <div class="card-trip" style="min-height: 100px;" >
     <div class="m-3">
       <% if current_user.id != @card.user_id  %>
         <h3> Book this card </h3>
@@ -13,7 +13,10 @@
                             label: 'When do you want to book it ?'
                             %>
               </div>
-                <div class="booking_js my-5" id="booking_js">
+                <div class="info_booking">
+                  <div id="price_days">
+                  </div>
+                </div>
               </div>
                 <div class="form-actions">
                   <%= f.button :submit, "Book this card", class: "btn btn-flat"%>
