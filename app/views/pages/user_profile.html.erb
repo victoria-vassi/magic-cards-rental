@@ -39,10 +39,6 @@
 
 
 
-
-
-
-
 <div id="Bookings Received" class="tabcontent">
     <div class="container" style="padding-top: 15px">
       <div class="row">
@@ -56,9 +52,9 @@
                   <p> Start date: <%= b.start_date %> </p>
                   <p> End date: <%= b.end_date %></p>
                   <p> Total price: $ <%= b.total_price %> </p>
-              <% end %>
             </div>
           </div>
+          <% end %>
         </div>
 
 
@@ -124,7 +120,12 @@
 
 <div id="Cards" class="tabcontent">
   <div class="container" style="padding-top: 15px">
-    <h4>Cards</h4>
+    <div style=" display: flex; justify-content: space-between; padding: 10px;" >
+      <h4>Cards</h4>
+        <% if policy(Card).create? %>
+        <%= link_to 'Add Card', new_card_path %>
+      <% end %>
+    </div>
       <div class="cards pb-5">
       <% @cards.each_with_index do |card, index| %>
         <%= render 'shared/card', card: card %>
@@ -134,8 +135,10 @@
                 <%= link_to "Edit", edit_card_path(card), class: "btn btn-flat"%>
               </div>
               <div class="cards-hover col-6">
+                <% if card.bookings.empty? %>
                  <button id="sweet-alert-demo-<%= index %>" class="btn btn-flat">Delete</button>
                 <%= link_to '', card_path(card), method: :delete, id: "delete-link-#{index}", class: "hidden" %>
+              <% end %>
               </div>
             </div>
           </div>
