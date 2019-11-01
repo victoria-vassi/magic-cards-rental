@@ -15,34 +15,34 @@ refreshSelectorbar();
 openCity();
 calculatePrice();
 
-document.querySelectorAll(".cards-icon.container .cards-hover:last-of-type").forEach((card, index) => {
-  initSweetalert(`#sweet-alert-demo-${index}`, {
-    title: "Are you sure?",
-    text: "This action cannot be reversed",
-    icon: "warning"
-  }, (value) => {
-    if (value) {
-      const link = document.querySelector(`#delete-link-${index}`);
-      link.click();
-    }
-  });
-})
-
 // document.querySelectorAll(".cards-icon.container .cards-hover:last-of-type").forEach((card, index) => {
-//   initSweetalert(`#sweet-alert-demo-${index}`,
-//     swal ({
+//   initSweetalert(`#sweet-alert-demo-${index}`, {
 //     title: "Are you sure?",
 //     text: "This action cannot be reversed",
-//     icon: "warning",
-//     buttons: true,
-//     dangerMode: true,
-//   })
-//   .then((willDelete) => {
-//     if (willDelete) {
-//        swal("Poof! Your file has been deleted!", {
-//        icon: "success",
-//       });
-//     } else {
-//     swal("Your file is safe!");
+//     icon: "warning"
+//   }, (value) => {
+//     if (value) {
+//       const link = document.querySelector(`#delete-link-${index}`);
+//       link.click();
 //     }
-//   })
+//   });
+// })
+
+document.querySelectorAll(".cards-icon.container .cards-hover:last-of-type").forEach((card, index) => {
+  initSweetalert(`#sweet-alert-demo-${index}`,
+    swal ({
+    title: "Are you sure?",
+    text: "This action cannot be reversed",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+       swal("Poof! Your file has been deleted!", {
+       icon: "success",
+      });
+    } else {
+    swal("Your file is safe!");
+    }
+  })
