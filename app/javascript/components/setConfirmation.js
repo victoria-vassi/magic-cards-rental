@@ -24,26 +24,32 @@ function setConfirmation() {
 	  return totalPrice;
 	};
 
-	button.addEventListener("click", (event) => {
-	  nameList.innerText = "";
-	  const selectedCards = document.querySelectorAll(".card-selected");
-	  selectedCards.forEach((card) => {
-	  	console.log(selectedCards)
-	    var name = card.children[1].children[0].children[0].innerText
-	    nameList.insertAdjacentHTML("beforeend", `<p>${name}</p>`);
-	  });
-	  const numberOfDays = calculateDays();
-	  const totalPrice = calculateSum(numberOfDays);
-	  totalPriceTag.innerText = `€ ${totalPrice}`
-	});
+  if (button) {
+  	button.addEventListener("click", (event) => {
+  	  nameList.innerText = "";
+  	  const selectedCards = document.querySelectorAll(".card-selected");
+  	  selectedCards.forEach((card) => {
+  	  	console.log(selectedCards)
+  	    var name = card.children[1].children[0].children[0].innerText
+  	    nameList.insertAdjacentHTML("beforeend", `<p>${name}</p>`);
+  	  });
+  	  const numberOfDays = calculateDays();
+  	  const totalPrice = calculateSum(numberOfDays);
+  	  totalPriceTag.innerText = `€ ${totalPrice}`
+  	});
+  }
 
-	cards.forEach((card) => {
-	  card.addEventListener("click", (event) => {
-		  const numberOfDays = calculateDays();
-		  const totalPrice = calculateSum(numberOfDays);
-		  totalPricePreviewTag.innerText = `(€ ${totalPrice} total)`
-	  });
-	});
+
+  if (cards) {
+  	cards.forEach((card) => {
+  	  card.addEventListener("click", (event) => {
+  		  const numberOfDays = calculateDays();
+  		  const totalPrice = calculateSum(numberOfDays);
+  		  totalPricePreviewTag.innerText = `(€ ${totalPrice} total)`
+  	  });
+  	});
+  }
+
 };
 
 export { setConfirmation };
