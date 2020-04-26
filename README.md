@@ -4,7 +4,7 @@
 
 <p> Magic Card rental allows people to rent out their magic cards to other people in a user friendly platform. </p> 
 
-<img src="https://github.com/victoria-vassi/avant-garde/raw/master/README/homepage.png" alt="homepage" title="Homepage" style="max-width:100%;">
+<img src="https://github.com/victoria-vassi/magic-cards-rental/raw/master/README/homepage.png" alt="homepage" title="Homepage" style="max-width:100%;">
 
 <h2> Specification </h2>
 
