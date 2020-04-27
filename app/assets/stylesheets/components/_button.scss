@@ -39,3 +39,27 @@
   color: black;
   text-decoration: none;
 }
+
+#review-button a:link, #review-button a:visited, #review-button a:hover, #review-button a:active,  {
+    text-decoration:none;
+}
+
+#review-button-new a:link, #review-button-new a:visited, #review-button-new a:hover, #review-button-new a:active,  {
+    text-decoration:none;
+}
+
+#review-button-new{
+  display: flex;
+  justify-content: end;
+}
+
+.back-button {
+  margin-top: 10px;
+  margin-left: 10px;
+  color:black;
+}
+
+.back-button:hover {
+  text-decoration:none;
+  color:#00bf6a;
+}
