@@ -23,6 +23,7 @@ Built on Ruby on Rails v5.2.0, Ruby v2.6.0, HTML5, CSS3 and JavaScript ES6. Depl
   <li> As a user, I can book a magic card </li>
   <li> As a user, I can add pictures for my magic card </li> 
   <li> As a user, I can add reviews for my magic card </li>
+  <li> As a user, I can filter cards by booking dates </li>
 </ul>
 
 <h2> Contribution </h2>
