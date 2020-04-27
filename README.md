@@ -17,15 +17,31 @@ Built on Ruby on Rails v5.2.0, Ruby v2.6.0, HTML5, CSS3 and JavaScript ES6. Depl
 
 <p> Here is a list of different user stories implement in this project: </p>
 
-<ul> 
-  <li> As a user, I can navigate on the website from the navbar (with functional links, e.g. “signin/signout”, “My bookings”,       “Publish an offer”, etc.)</li>
-  <li> As a user, I can view a magic card’s page </li> 
-  <li> As a user, I can book a magic card </li>
-  <li> As a user, I can add pictures for my magic card </li> 
-  <li> As a user, I can add reviews for my magic card </li>
-  <li> As a user, I can filter cards by booking dates </li>
-</ul>
+User: Lender & Borrower
+  <ul> 
+     <li> As a user, I can navigate on the website from the navbar (with functional links, e.g. “signin/signout”,   “Mybookings”, “Publish an offer”, etc.)</li>
+    <li> As a user, I can view a list of magic card available </li> 
+    <li> As a user, I can filter cards by booking dates </li>
+    <li> As a user, I can edit my profile (email and password) </li> 
+    <li> As a user, I can delete my profile </li> 
+    <li> As a user, I can view booking made and received </li> 
+  </ul> 
+  
+Borrower
+  <ul> 
+    <li> As a borrower, I can book a magic card </li>
+    <li> As a borrower, I can add reviews for my magic card </li>
+    <li> As a borrower, I can view the booking made </li>
+  </ul>
 
+Lender
+  <ul>
+    <li> As a lender, I can add a magic card and a rental price per week </li> 
+    <li> As a lender, I can edit/update a magic card that I created </li>
+    <li> As a lender, I can delete a magic card that I created </li>
+    <li> As a lender, I can view the booking received </li>
+  </ul>
+  
 <h2> Contribution </h2>
 
 The main contributors to this project are:
