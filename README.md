@@ -10,12 +10,12 @@
 
 Built on Ruby on Rails v5.2.0, Ruby v2.6.0, HTML5, CSS3 and JavaScript ES6. Deployed on a Heroku Hobby instance.
 
-<h2> Key Features </h2>
-
 <p> Integration of Magic: The Gathering API by <a href="https://andrewbackes.com/"> Andrew Backes</a></p> 
 <p> <a href="https://docs.magicthegathering.io/">API Documentation can be found here </a> </p>
 
-<p> Here is a list of different user stories implement in the project: </p>
+<h2> Key Features </h2>
+
+<p> Here is a list of different user stories implement in this project: </p>
 
 <ul> 
   <li> As a user, I can navigate on the website from the navbar (with functional links, e.g. “signin/signout”, “My bookings”,       “Publish an offer”, etc.)</li>
