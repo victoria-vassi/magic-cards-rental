@@ -1,28 +1,44 @@
-<div class="container mx-auto">
-    <div class="row">
-      <div class="col-sm-8 col-md-6 col-lg-3 mx-auto my-5">
-        <%= render 'shared/card', card: @card %>
-      </div>
-      <div class="col-sm-8 col-md-6 col-lg-6 mx-auto mt-5">
-        <%= render 'shared/booking', card: @card %>
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <div class="back-button">
+        <i class="fas fa-arrow-left"></i> <%= link_to "Back", cards_path, :class => "back-button"%>
       </div>
     </div>
   </div>
-</div>
-<% if @card.reviews.any?  %>
+
+  <div class="row row-review">
+      <div class="col-4">
+      <%= render 'shared/card', card: @card %>
+    </div>
+
+    <div class="col-8">
+      <%= render 'shared/booking', card: @card %>
+    </div>
+  </div>
+
+
+  <% if @card.reviews.any?  %>
   <%= render 'shared/reviews', card:@card %>
   <% else %>
-    <div class="card text-center mt-2">
-      <div class="card-body">
-        <h5 class="card-title">Be the first to leave a review for <%= @card.name %></h5>
+
+  <div class= "row row-review">
+    <div class="col">
+      <div class="card text-center mt-2">
+        <div class="card-body">
+          <h5 class="card-title">Be the first to leave a review for <%= @card.name %></h5>
+        </div>
+        <div class="card-footer text-muted">
+          <button id = "review-button" type="button" class="btn btn-flat">
+            <%= link_to "Write Review", new_card_review_path(@card), style: "color: white;" %>
+          </button>
+        </div>
       </div>
-      <div class="card-footer text-muted">
-        <button type="button" class="btn btn-primary btn-md"><%= link_to "Write Review", new_card_review_path(@card), style: "color: white;" %></button>
-      </div>
-    </div>
-​  <% end %>
-    <div class="py-5 d-flex justify-content-center">
-      <%= link_to "Back", cards_path, :class => "btn btn-flat"%>
+      <% end %>
     </div>
   </div>
-​</div>
+
+</div>
+
+
