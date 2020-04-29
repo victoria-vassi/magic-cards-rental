@@ -22,4 +22,3 @@ setConfirmation();
 deleteCardAlert();
 noDeleteBtn();
 
-
