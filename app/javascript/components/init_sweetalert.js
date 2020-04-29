@@ -3,7 +3,6 @@ import swal from 'sweetalert';
 
 
 const initSweetalert = (selector, options = {}, callback = () => {}) => {
-  console.log("kjkjlkjjlkjlk")
   const swalButton = document.querySelector(selector);
     swal(options).then(callback);
 };
@@ -28,7 +27,6 @@ buttons.forEach((button, index) => {
          swal("Your file has been deleted!", {
          icon: "success"
         });
-         console.log(index)
         const link = document.querySelector(`#delete-link-${index}`);
 
           setTimeout(function() {
