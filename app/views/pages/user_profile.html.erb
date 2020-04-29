@@ -119,18 +119,74 @@
 
 <div id="Cards" class="tabcontent">
   <div class="container" style="padding-top: 15px">
+
     <div style=" display: flex; justify-content: space-between; padding: 10px;" >
       <h4>Cards</h4>
         <% if policy(Card).create? %>
         <%= link_to 'Add Card', new_card_path %>
       <% end %>
     </div>
+
       <div class="cards pb-5">
-      <% @cards.each_with_index do |card, index| %>
-        <%= render 'shared/card', card: card %>
-
-
+        <% @cards.each_with_index do |card, index| %>
+          <div class="card-category">
+            <% if !(params["dates"].nil? || params["dates"]["range"] == "") %>
+              <div class="card-trip-selectable" id="<%= card.id %>">
+            <% else %>
+              <div class="card-trip" id="<%= card.id %>">
+            <% end  %>
+                 <div class="overlay">
+                  <%= link_to "Edit", edit_card_path(card), class: "btn btn-flat edit-button"%>
+                  <% if card.bookings.empty? %>
+                    <button data-id="<%= card.id %>" id="sweet-alert-demo-<%= card.id %>" class="sweet-alert-btn btn btn-flat">Delete</button>
+                    <%= link_to '', card_path(card), method: :delete, id: "delete-link-#{card.id}", class: "hidden" %>
+                  <% else %>
+                    <button class="button-not-delete btn btn-flat">Delete</button>
+                  <% end %>
+                </div>
+              <% if !(params[:action] == "show") %>
+                <%= link_to card_path(card) do %>
+                  <%= content_tag :img, "", src: card.img_url %>
+                <% end %>
+              <% else %>
+                <img src=<%= card.img_url %>>
+              <% end  %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= card.name %></h2>
+                  <p><%= card.card_type.truncate(26) %></p>
+                  <br>
+                  <p>
+                    <% if card.cmc.nil? %>
+                      <br>
+                    <% else %>
+                      Mana: <%= card.cmc.to_i.round %>
+                    <% end %>
+                  </p>
+                  <p>
+                    <% if card.power.nil? %>
+                      <br>
+                    <% else %>
+                      Power: <%= card.power.to_i.round %>
+                    <% end %>
+                  </p>
+                  <p>
+                    <% if card.toughness.nil? %>
+                      <br>
+                    <% else %>
+                      Toughness: <%= card.toughness.to_i.round %>
+                    <% end %>
+                  </p>
+                </div>
+                <h2 class="card-trip-pricing">€<span id="card_price"><%= card.price_per_week %></span></h2>
+                <% if !card.color.nil? %>
+                  <span class="dot" style="background-color: <%= card.color.downcase %>"></span>
+                <% else %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         <% end %>
-    </div>
+      </div>
   </div>
 </div>
