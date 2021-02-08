@@ -18,7 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'faker'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.9.1'
 gem 'bootstrap'
